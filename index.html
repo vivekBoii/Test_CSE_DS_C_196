@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #b5b5cca0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      #outer {
+        background-color: #f4f4f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        margin: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #8ddc68;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #00b33c;
+      }
+      img {
+        height: 150px;
+      }
+      #inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner">
+        <div>
+          <img
+            src="https://in.canon/media/image/2024/07/17/3d47abeaf9574a9ba9401c6ff2ca7bb1_EOS+R5+Mark+II+%26+RF24-105mm+f4L+IS+USM+Front+Slant.png"
+            alt=""
+          />
+        </div>
+
+        <h1>Sample Product</h1>
+        <h1 style="color: #b5b5cca0">Rs. 15</h1>
+        <h1 style="font-size: 15px;">This is the short description of Product</h1>
+        <h1 style="font-size: 20px;">Quantity:</h1>
+        <input style="margin-bottom: 10px;height: 25px;width: 250px;" id="quantity" type="text" />
+        <div style="margin-bottom: 10px;" id="total">Total Price Rs.15</div>
+        <button onclick="buy()">Buy Now</button>
+      </div>
+    </div>
+    <script>
+      const price = 15;
+      const quantityInput = document.getElementById("quantity");
+      const totalDiv = document.getElementById("total");
+      let quantity=1;
+      let total=15;
+
+      quantityInput.addEventListener("input", () => {
+        quantity = parseInt(quantityInput.value) || 1;
+        total = quantity * price;
+        console.log(total)
+      });
+
+      function buy() {
+        alert(`You added ${quantity} items to your cart for Rs. ${total}`);
+        totalDiv.textContent = `Total: Rs. ${total}`;
+      }
+    </script>
+  </body>
+</html>
